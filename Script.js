@@ -42,11 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
       const grupoAleatorio = grupos[Math.floor(Math.random() * grupos.length)];
       nuevoAlumno.asignarGrupo(grupoAleatorio);
       
+      window.location.href = "#materias";
       
       
       document.getElementById("inscripcion").classList.add("oculto");
-      document.getElementById("alumnos").classList.remove("oculto");
-      window.location.href = "#materias";
+      document.getElementById("materias").classList.remove("oculto");
     });
 
   // Event listener para el formulario de materias
@@ -164,13 +164,13 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  // Crear alumnos y grupos
+  //alumnos y grupos
   const alumno1 = new Alumno("Juan", "Perez", 20);
   const alumno2 = new Alumno("Maria", "Gonzalez", 21);
   const alumno3 = new Alumno("Pedro", "Lopez", 22);
   const alumno4 = new Alumno("Lucia", "Aldana", 24);
   const alumno5 = new Alumno("Antoni", "Tellez", 21);
-  const alumno6 = new Alumno("Luis", "Orduña", 26);
+  const alumno6 = new Alumno("Luis", "Orduña", 23);
 
   const grupoA = new Grupo("Grupo A");
   grupoA.agregarAlumno(alumno1);
