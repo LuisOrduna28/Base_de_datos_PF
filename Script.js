@@ -42,13 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
       const grupoAleatorio = grupos[Math.floor(Math.random() * grupos.length)];
       nuevoAlumno.asignarGrupo(grupoAleatorio);
       
-      window.location.href = "#materias";
-    
-
-      // Ocultar el formulario de registro y mostrar la sección de alumnos
+      
+      
       document.getElementById("inscripcion").classList.add("oculto");
-      // document.getElementById("alumnos").classList.remove("oculto");
-  });
+      document.getElementById("alumnos").classList.remove("oculto");
+      window.location.href = "#materias";
+    });
 
   // Event listener para el formulario de materias
   formMaterias.addEventListener("submit", function(event) {
@@ -182,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
   grupoB.agregarAlumno(alumno4);
   grupoB.agregarAlumno(alumno5);
   
-
+  
   const grupoC = new Grupo("Grupo C");
   grupoC.agregarAlumno(alumno6);
   
@@ -237,5 +236,56 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("Promedio del Grupo A:", grupoA.obtenerPromedioGrupo());
   console.log("Promedio del Grupo B:", grupoB.obtenerPromedioGrupo());
   console.log("Promedio del Grupo C:", grupoC.obtenerPromedioGrupo());
+  
+  // =================================== CalificacionPorGrupo ================================================
+  
+  
+  // Grupo A
+  let progresscircleA = document.getElementById("progressA");
+  let percentageA = document.getElementById("percentageA");
+  let cantidadA = 0;
+  let cantidadMaximaA = 100; // Reemplaza con la cantidad máxima deseada
+  
+  let tiempoA = setInterval(() => {
+      cantidadA += 1;
+      let valoresA = Math.ceil((cantidadMaximaA -= 1));
+      percentageA.textContent = cantidadA;
+      progresscircleA.style.strokeDashoffset = `${valoresA}`;
+      if (cantidadA >= cantidadMaximaA) {
+          clearInterval(tiempoA);
+      }
+  }, 80);
+  
+  // Grupo B
+  let progresscircleB = document.getElementById("progressB");
+  let percentageB = document.getElementById("percentageB");
+  let cantidadB = 0;
+  let cantidadMaximaB = 100; // Reemplaza con la cantidad máxima deseada
+  
+  let tiempoB = setInterval(() => {
+      cantidadB += 1;
+      let valoresB = Math.ceil((cantidadMaximaB -= 1));
+      percentageB.textContent = cantidadB;
+      progresscircleB.style.strokeDashoffset = `${valoresB}`;
+      if (cantidadB >= cantidadMaximaB) {
+          clearInterval(tiempoB);
+      }
+  }, 80);
+  
+  // Grupo C
+  let progresscircleC = document.getElementById("progressC");
+  let percentageC = document.getElementById("percentageC");
+  let cantidadC = 0;
+  let cantidad2C = 630;
+  
+  let tiempoC = setInterval(() => {
+      cantidadC += 1;
+      let valoresC = Math.ceil((cantidad2C -= 6.3));
+      percentageC.textContent = cantidadC;
+      progresscircleC.style.strokeDashoffset = `${valoresC}`;
+      if (cantidadC >= 100) {
+          clearInterval(tiempoC);
+      }
+  }, 80);
 });
 
