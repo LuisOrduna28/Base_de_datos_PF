@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("inscripcion").classList.add("oculto");
       document.getElementById("materias").classList.remove("oculto");
     });
-
   // Event listener para el formulario de materias
   formMaterias.addEventListener("submit", function(event) {
       event.preventDefault();
@@ -216,11 +215,11 @@ document.addEventListener("DOMContentLoaded", function() {
   alumno5.inscribirMateria("Matematicas");
   alumno5.asignarCalificacion("Matematicas", 80);
   alumno5.inscribirMateria("Idiomas");
-  alumno5.asignarCalificacion("Idiomas", 78);
+  alumno5.asignarCalificacion("Idiomas", 70);
 
   alumno6.asignarGrupo("Grupo C")
   alumno6.inscribirMateria("Matematicas");
-  alumno6.asignarCalificacion("Matematicas", 99);
+  alumno6.asignarCalificacion("Matematicas", 100);
   alumno6.inscribirMateria("Literatura");
   alumno6.asignarCalificacion("Literatura", 100);
 
@@ -244,14 +243,14 @@ document.addEventListener("DOMContentLoaded", function() {
   let progresscircleA = document.getElementById("progressA");
   let percentageA = document.getElementById("percentageA");
   let cantidadA = 0;
-  let cantidadMaximaA = 100; // Reemplaza con la cantidad máxima deseada
+  let cantidadMaximaA = 630; 
   
   let tiempoA = setInterval(() => {
       cantidadA += 1;
-      let valoresA = Math.ceil((cantidadMaximaA -= 1));
+      let valoresA = Math.ceil((cantidadMaximaA -= 6.3));
       percentageA.textContent = cantidadA;
       progresscircleA.style.strokeDashoffset = `${valoresA}`;
-      if (cantidadA >= cantidadMaximaA) {
+      if (cantidadA >= grupoA.obtenerPromedioGrupo()) {
           clearInterval(tiempoA);
       }
   }, 80);
@@ -260,14 +259,14 @@ document.addEventListener("DOMContentLoaded", function() {
   let progresscircleB = document.getElementById("progressB");
   let percentageB = document.getElementById("percentageB");
   let cantidadB = 0;
-  let cantidadMaximaB = 100; // Reemplaza con la cantidad máxima deseada
+  let cantidadMaximaB = 630;
   
   let tiempoB = setInterval(() => {
       cantidadB += 1;
-      let valoresB = Math.ceil((cantidadMaximaB -= 1));
+      let valoresB = Math.ceil((cantidadMaximaB -= 6.3));
       percentageB.textContent = cantidadB;
       progresscircleB.style.strokeDashoffset = `${valoresB}`;
-      if (cantidadB >= cantidadMaximaB) {
+      if (cantidadB >= grupoB.obtenerPromedioGrupo()) {
           clearInterval(tiempoB);
       }
   }, 80);
@@ -276,14 +275,14 @@ document.addEventListener("DOMContentLoaded", function() {
   let progresscircleC = document.getElementById("progressC");
   let percentageC = document.getElementById("percentageC");
   let cantidadC = 0;
-  let cantidad2C = 630;
+  let cantidadMaximaC = 630;
   
   let tiempoC = setInterval(() => {
       cantidadC += 1;
-      let valoresC = Math.ceil((cantidad2C -= 6.3));
+      let valoresC = Math.ceil((cantidadMaximaC -= 6.3));
       percentageC.textContent = cantidadC;
       progresscircleC.style.strokeDashoffset = `${valoresC}`;
-      if (cantidadC >= 100) {
+      if (cantidadC >= grupoC.obtenerPromedioGrupo()) {
           clearInterval(tiempoC);
       }
   }, 80);
